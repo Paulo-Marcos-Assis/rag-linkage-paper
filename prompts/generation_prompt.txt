@@ -1,0 +1,111 @@
+Você é um jornalista investigativo especializado em licitações públicas no Brasil.
+
+CONTEXTO (NÃO MENCIONAR NA RESPOSTA):
+Este texto será utilizado em um experimento de Processamento de Linguagem Natural (PLN) com uso de RAG (Retrieval-Augmented Generation).
+O objetivo é avaliar se um sistema consegue recuperar corretamente um processo licitatório a partir de uma notícia.
+
+Para isso, a notícia deve conter pistas semânticas realistas, mas NÃO deve copiar literalmente o objeto descrito no documento da licitação.
+Apenas a modalidade e o município devem ser mantidos como fornecidos.
+
+Ao descrever o objeto da licitação, interprete o conteúdo do edital e reescreva como um jornalista faria:
+- NÃO reproduza o texto técnico do edital literalmente.
+- Interprete o conteúdo e reescreva de forma natural e compreensível.
+- Explique, de forma indireta, o que está sendo contratado (finalidade prática da licitação).
+- Se necessário, simplifique termos técnicos.
+- Você pode resumir, reorganizar ou detalhar o objeto para torná-lo mais claro no contexto da notícia.
+- Use variações linguísticas (sinônimos, paráfrases), mantendo o mesmo significado.
+
+EXEMPLOS DE ESTILO (NÃO COPIAR, APENAS REFERÊNCIA):
+
+Exemplo 1:
+Descrição técnica:
+"Aquisição de gêneros alimentícios para alimentação escolar dos alunos das Escolas de Ensino Fundamental, dos Centros de Educação Infantil da Rede Municipal de Ensino e Entidades Filantrópicas Municipais"
+Forma jornalística:
+"A licitação previa a compra de alimentos destinados à merenda escolar de alunos da rede municipal e de entidades filantrópicas."
+
+Exemplo 2:
+Descrição técnica:
+"Registro de preços para futura aquisição de medicamentos para atender a demanda dos postos de saúde do município"
+Forma jornalística:
+"O processo tratava do fornecimento de medicamentos destinados ao abastecimento dos postos de saúde do município."
+
+Exemplo 3:
+Descrição técnica:
+"Registro de preços para aquisição de camisetas para campanhas educativas..."
+Forma jornalística:
+"A contratação envolvia a produção de fornecimento de camisetas voltadas a campanhas educativas da área da saúde do município."
+
+----------------------------------------------------------------------
+TAREFA:
+
+Reescreva a notícia abaixo como uma nova matéria jornalística, mantendo:
+- A estrutura narrativa (parágrafos, progressão da informação)
+- O estilo jornalístico
+
+----------------------------------------------------------------------
+NOVOS ATRIBUTOS (USO OBRIGATÓRIO):
+
+- Município: {municipio}
+- Modalidade: {modalidade}
+- Objeto da licitação: {descricao_objeto}
+
+----------------------------------------------------------------------
+REGRAS:
+
+1. USO OBRIGATÓRIO DOS ATRIBUTOS:
+   - A nova notícia DEVE refletir claramente os três atributos (município, modalidade e objeto), mesmo que a notícia original não contenha esses elementos.
+   - Se a notícia original não mencionar algum desses aspectos, você deve introduzi-los de forma natural.
+
+2. REESCRITA DO OBJETO (REGRA MAIS IMPORTANTE):
+   - NÃO copie o texto de "descricao_objeto" literalmente.
+   - Reescreva como um jornalista faria:
+     → simplifique, resuma ou explique
+     → use sinônimos ou descrições equivalentes
+     → torne o texto natural e plausível em uma reportagem
+   - O objetivo é manter o SIGNIFICADO, mas alterar a FORMA textual.
+
+3. Varie a forma de introduzir o objeto na narrativa:
+   - evite padrões repetitivos (ex: "tinha como objeto")
+   - use construções diferentes e naturais
+
+4. Mantenha coerência e plausibilidade jornalística:
+   - adapte o texto ao novo contexto
+   - integre os atributos de forma fluida
+
+5. CONTEXTO DE FRAUDE:
+   - Mantenha o tema de suspeita de irregularidade, fraude ou problema na licitação.
+   - Isso é essencial para o experimento.
+
+6. PROIBIÇÕES:
+   - NÃO invente número de edital, valores (R$), datas ou nomes específicos não fornecidos.
+   - NÃO copie trechos longos da notícia original.
+   - NÃO explique o que está fazendo.
+
+7. VARIAÇÃO SEMÂNTICA (CRÍTICO PARA O EXPERIMENTO):
+   - Evite repetir exatamente as mesmas palavras do objeto.
+   - Use variações linguísticas naturais (paráfrase).
+   - Introduza pequenas reformulações que preservem o significado.
+   - Isso é essencial para testar recuperação semântica (RAG).
+
+8. Idioma: português brasileiro, linguagem jornalística.
+
+9. FORMATO DE SAÍDA (IMPORTANTE):
+   - Retorne um objeto JSON com dois campos: "titulo" e "texto"
+   - O título deve ser uma manchete jornalística curta e impactante relacionada à notícia reescrita
+   - O texto deve ser a notícia completa reescrita
+   - Formato exato:
+     {
+       "titulo": "Título da notícia sintética aqui",
+       "texto": "Texto completo da notícia reescrita aqui..."
+     }
+
+----------------------------------------------------------------------
+NOTÍCIA ORIGINAL:
+
+Título: {titulo_original}
+
+Texto: {texto_noticia_original}
+
+----------------------------------------------------------------------
+
+Notícia reescrita (retorne APENAS o JSON):

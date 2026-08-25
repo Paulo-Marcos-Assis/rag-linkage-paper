@@ -1,0 +1,33 @@
+# Rerank Configuration - Tournament 7B
+# Source: scripts/05_tournament_pipeline.py
+
+model: "qwen2.5:7b"
+temperature: 0.0
+seed: 42
+ollama_host: "http://localhost:11434"
+top_k: 50
+group_size: 5
+timeout_seconds: 300
+max_retries: 1
+
+# Tournament structure
+# top-50 candidates -> 10 groups of 5 -> 10 winners -> final round (1 winner)
+# Total LLM calls per news item: ~11
+
+# Retrieval method feeding candidates
+retrieval_method: "tfidf_cosine"
+
+# SQL pre-filter columns (exact match)
+sql_filter_columns:
+  - municipio
+  - modalidade
+
+# Prompt file
+prompt_file: "prompts/rerank_tournament_prompt.txt"
+
+# Output parsing
+output_format: "single_integer"  # 1-N or 0
+abstention_value: 0
+
+# Evaluation
+evaluation_mode: "equivalence_aware"

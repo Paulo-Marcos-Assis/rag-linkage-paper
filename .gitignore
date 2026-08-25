@@ -1,0 +1,95 @@
+# ==========================================
+# Dados grandes / gerados / sensíveis
+# ==========================================
+
+# Base de 315k processos (pública, mas grande; baixar via script)
+data/public_procurement_315k.csv
+data/processos_325k.csv
+data/*.csv
+!data/README.md
+!data/.gitignore
+
+# Modelos e caches (regeneráveis via scripts 01, 02, 03)
+models/
+*.pkl
+*.faiss
+vector_store/
+tfidf_model/
+cache_tfidf_top50.pkl
+
+# Benchmark sintético (NÃO PUBLICAR por ética - notícias fictícias de fraude ligadas a processos reais)
+noticias_simuladas/*.csv
+noticias_simuladas/*.json
+noticias_simuladas/*.log
+noticias_simuladas/mapeamento_pares*.json
+noticias_simuladas/erros_*.json
+noticias_simuladas/status_*.json
+benchmarks/
+!benchmarks/README.md
+!benchmarks/regenerate_benchmark.py
+!benchmarks/.gitignore
+
+# Resultados de execução (logs, checkpoints, métricas)
+results/
+*.log
+checkpoint_*.json
+*_metrics_summary.md
+errors_analysis.json
+all_methods_*.json
+consolidado_*.json
+ngrams_*.json
+retrieval_*.json
+single_call_*.json
+tournament*.json
+log_*.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Paper - PASTA PRIVADA, NÃO SUBIR PARA GITHUB
+paper/
+
+# Variáveis de ambiente / segredos
+.env
+.env.local
+.env.*.local
+secrets.yaml
+config/local.yaml
+
+# Arquivos soltos na raiz
+analyze_tfidf_test_detailed.py
+analyze_tfidf_test.py
+copy_data.sh
+atributo ano/
+exploratory/
+docs/
+logs/
+# Documentação interna (contém hosts/credenciais internos)
+documentacao/

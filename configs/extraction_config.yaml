@@ -1,0 +1,45 @@
+# Extraction Configuration (Attribute Extraction from News)
+# Source: scripts/feature_extractor.py
+
+model: "gpt-oss:20b"
+temperature: 0.0
+seed: 42
+ollama_host: "http://localhost:11434"
+timeout_seconds: 900  # hard limit via signal.alarm
+
+# Attributes to extract
+attributes:
+  - municipio_ente
+  - modalidade
+  - edital
+  - objeto
+
+# Output format: JSON with arrays for each attribute
+# { "municipio_ente": [...], "modalidade": [...], "edital": [...], "objeto": [...] }
+
+# Prompt file
+prompt_file: "prompts/extraction_prompt.txt"
+
+# Normalization rules (applied post-extraction)
+normalization:
+  municipio:
+    - remove_prefixes: ["cidade de ", "município de ", "municipio de "]
+    - filter_uf: "SC"  # keep only Santa Catarina municipalities
+    - special_case: "Estado de Santa Catarina"
+  modalidade:
+    - singularize: true
+    - mappings:
+        "dispensa": "dispensa de licitação"
+        "concorrência pública": "concorrência"
+        "pregão público": null  # ignore
+        "registro de preço": null  # ignore
+        "sistema de registro de preço": null  # ignore
+  edital:
+    - format: "NUMERO/ANO"
+    - remove_orgao_prefixes: true
+    - deduplicate: true
+  objeto:
+    - preserve_news_words: true
+    - combine_multiple_mentions: true
+    - keep_technical_details: true
+    - exclude_investigation_context: true

@@ -1,0 +1,28 @@
+# Rerank Configuration - Single Call 20B
+# Source: scripts/06_single_call_pipeline.py
+
+model: "gpt-oss:20b"
+temperature: 0.0
+seed: 42
+ollama_host: "http://localhost:11434"
+top_k: 10
+timeout_seconds: 300
+max_retries: 1
+
+# Retrieval method feeding candidates
+retrieval_method: "tfidf_cosine"
+
+# SQL pre-filter columns (exact match)
+sql_filter_columns:
+  - municipio
+  - modalidade
+
+# Prompt file
+prompt_file: "prompts/rerank_single_call_prompt.txt"
+
+# Output parsing
+output_format: "single_integer"  # 1-N or 0
+abstention_value: 0
+
+# Evaluation
+evaluation_mode: "equivalence_aware"  # considers duplicate/identical-object groups

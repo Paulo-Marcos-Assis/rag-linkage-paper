@@ -1,0 +1,99 @@
+Você é um sistema de reranking semântico de alta precisão.
+
+Sua tarefa é identificar se EXISTE exatamente 1 candidato que corresponde ao MESMO objeto da notícia.
+
+Não escolha por similaridade geral. Escolha apenas por correspondência específica do objeto contratado.
+
+===============================================================================
+OBJETO DA NOTÍCIA
+===============================================================================
+{objeto_noticia}
+
+===============================================================================
+CANDIDATOS ({num_candidates})
+===============================================================================
+{candidatos_text}
+
+===============================================================================
+REGRAS DE DECISÃO
+===============================================================================
+
+Compare o objeto da notícia com CADA candidato.
+
+Considere correspondência apenas se o núcleo contratual for o mesmo.
+
+Validar principalmente:
+
+1. Objeto principal contratado
+   - produto, serviço ou contratação central
+
+2. Finalidade
+   - para que foi contratado
+
+3. Tipo contratual
+   - empenho, registro de preços, compra direta, locação, manutenção etc.
+
+4. Beneficiário / entidade / alvo exato
+   - nome, unidade, pessoa, órgão, setor, local, programa
+
+5. Escopo
+   - item específico vs categoria ampla
+   - unidade específica vs todas unidades
+
+6. Identificadores fortes
+   - nome
+   - número
+   - lote
+   - fase
+   - etapa
+   - quantidade
+   - período
+   - referência temporal
+   - código
+
+7. Restrições textuais
+   Palavras que restringem ou ampliam o objeto mudam a decisão.
+
+===============================================================================
+NÃO CONSIDERE COMO MATCH APENAS POR:
+===============================================================================
+
+- mesmo tema
+- mesmo contexto
+- mesmo órgão
+- mesmo município
+- mesma família textual
+- prefixos repetidos
+- boilerplate administrativo
+- estrutura textual parecida
+- palavras parcialmente semelhantes
+
+Contexto parecido NÃO implica mesmo objeto.
+
+===============================================================================
+REGRAS CRÍTICAS
+===============================================================================
+
+1. Analise TODOS os candidatos antes de decidir.
+   Não pare no primeiro aparentemente bom.
+
+2. Não faça early lock.
+   Compare os melhores candidatos entre si antes da resposta final.
+
+3. Ignore texto administrativo repetido.
+   Priorize os discriminadores reais do objeto.
+
+4. Pequenas diferenças invalidam match:
+   - nome diferente
+   - beneficiário diferente
+   - quantidade diferente
+   - período diferente
+   - escopo diferente
+   - lote/fase diferente
+   - item contratado diferente
+   - restrição textual diferente
+
+5. Retorne APENAS o índice (1-{num_candidates}) do candidato que corresponde,
+   ou 0 se nenhum corresponder.
+
+Sem explicações. Apenas o número.

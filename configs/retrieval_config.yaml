@@ -1,0 +1,61 @@
+# Retrieval Configuration (13 Methods Evaluation)
+# Source: scripts/01_build_vector_store.py, 02_build_tfidf_model.py, 03_generate_cache.py
+
+# Database
+database_csv: "data/public_procurement_315k.csv"
+sql_filter_columns:
+  - municipio
+  - modalidade
+
+# Candidates per query
+top_k: 50
+
+# TF-IDF
+tfidf:
+  max_features: null  # use full vocabulary
+  ngram_range: [1, 1]  # unigrams only (as in paper)
+  sublinear_tf: false
+  norm: "l2"
+  use_idf: true
+  smooth_idf: true
+  # IDF computed on full 315,052 process corpus (no data leakage)
+
+# Character n-grams
+ngrams:
+  n_values: [2, 3, 4, 5]
+
+# Set-based similarities
+set_based:
+  methods: ["jaccard", "dice", "overlap_coefficient"]
+
+# Distance measures
+distances:
+  methods: ["levenshtein", "jaro_winkler"]
+
+# Neural embeddings (zero-shot, no fine-tuning)
+neural:
+  models:
+    - name: "bert_base"
+      model_id: "bert-base-portuguese-cased"
+      pooling: "cls"
+    - name: "bertimbau_large"
+      model_id: "neuralmind/bert-large-portuguese-cased"
+      pooling: "cls"
+    - name: "heibert"
+      model_id: "pucpr/heibert"  # or local path
+      pooling: "cls"
+  index_type: "faiss_flat_ip"  # inner product on normalized vectors
+  batch_size: 32
+
+# Evaluation
+evaluation:
+  metrics: ["R@1", "R@3", "R@5", "R@10", "R@20", "R@50", "MRR", "mean_rank"]
+  strict_matching: true  # exact gold ID match for retrieval comparison
+  equivalence_aware: false  # only for final pipeline evaluation
+
+# Hardware (for reference)
+hardware:
+  cpu: "AMD EPYC 9654"
+  ram: "1.5 TB"
+  gpu: "NVIDIA RTX A6000 (48 GB VRAM)"
+  cuda: "12.8"

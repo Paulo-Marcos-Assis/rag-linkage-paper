@@ -1,0 +1,37 @@
+# Generation Configuration (Synthetic News)
+# Source: noticias_simuladas/gerar_noticias_sinteticas.py
+
+model: "gpt-oss:20b"
+temperature: 0.3
+seed: 42
+ollama_host: "http://localhost:11434"  # configure via OLLAMA_HOST env var
+max_retries: 3
+retry_delay_seconds: 5
+timeout_seconds: 180
+output_format: "json"  # expects {titulo, texto}
+
+# Input files (user-provided, not in repo)
+noticias_csv: "data/noticias_reais_500.csv"          # dev: 500 real fraud news
+processos_csv: "data/processos_500_dev.csv"         # dev: 500 sampled processes
+noticias_test_csv: "data/noticias_reais_214_test.csv"  # test: 214 real fraud news
+processos_test_csv: "data/processos_214_test.csv"      # test: 214 sampled processes
+
+# Output files (git-ignored, generated)
+output_csv_dev: "noticias_simuladas/500_noticias_sinteticas.csv"
+output_csv_test: "noticias_simuladas/214_noticias_sinteticas_test.csv"
+mapping_json_dev: "noticias_simuladas/mapeamento_pares.json"
+mapping_json_test: "noticias_simuladas/mapeamento_pares_test.json"
+log_file_dev: "noticias_simuladas/geracao_log.txt"
+log_file_test: "noticias_simuladas/geracao_log_test.txt"
+erros_json_dev: "noticias_simuladas/erros_geracao.json"
+erros_json_test: "noticias_simuladas/erros_geracao_test.json"
+status_json_dev: "noticias_simuladas/status_execucao.json"
+status_json_test: "noticias_simuladas/status_execucao_test.json"
+
+# Prompt file
+prompt_file: "prompts/generation_prompt.txt"
+
+# Splits
+dev_split_ratio: 0.7  # 500/714
+test_split_ratio: 0.3  # 214/714
+total_pairs: 714
