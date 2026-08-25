@@ -109,8 +109,3 @@ Paulo Marcos de Assis — paulo.marcos@grad.ufsc.br
 Federal University of Santa Catarina (UFSC)
 
 > **Note**: For reproduction questions, open a GitHub issue.
-
-Paulo Marcos de Assis — paulo.marcos@grad.ufsc.br  
-Federal University of Santa Catarina (UFSC)
-
-> **Note**: For reproduction questions, open a GitHub issue.
