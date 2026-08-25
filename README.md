@@ -2,7 +2,7 @@
 
 **Paper**: *A Hybrid RAG Pipeline for Linking Fraud News to Public Procurement Records*  
 **Authors**: Paulo Marcos de Assis, Márcio Castro, Jônata Tyska Carvalho  
-**Venue**: SBC (Simpósio Brasileiro de Banco de Dados) 2026  
+**Venue**: ENIAC 2026 — 23º Encontro Nacional de Inteligência Artificial e Computacional  
 
 ## Overview
 
@@ -98,7 +98,7 @@ See `benchmarks/README.md` for details.
 @inproceedings{assis2026hybridrag,
   title={A Hybrid RAG Pipeline for Linking Fraud News to Public Procurement Records},
   author={Assis, Paulo Marcos de and Castro, M\'{a}rcio and Carvalho, J\^{o}nata Tyska},
-  booktitle={Anais do Simp\'{o}sio Brasileiro de Banco de Dados (SBBD)},
+  booktitle={Anais do 23º Encontro Nacional de Inteligência Artificial e Computacional (ENIAC)},
   year={2026}
 }
 ```
