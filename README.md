@@ -103,13 +103,12 @@ See `benchmarks/README.md` for details.
 }
 ```
 
-## License
-
-Code: MIT License  
-Paper: CC-BY-4.0  
-See `LICENSE` file.
-
 ## Contact
+
+Paulo Marcos de Assis — paulo.marcos@grad.ufsc.br  
+Federal University of Santa Catarina (UFSC)
+
+> **Note**: For reproduction questions, open a GitHub issue.
 
 Paulo Marcos de Assis — paulo.marcos@grad.ufsc.br  
 Federal University of Santa Catarina (UFSC)
