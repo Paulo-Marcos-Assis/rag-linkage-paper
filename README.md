@@ -34,8 +34,6 @@ rag-linkage-paper/
 ├── models/                     # TF-IDF/FAISS indexes (git-ignored)
 ├── results/                    # Execution outputs (git-ignored)
 ├── noticias_simuladas/         # Generation scripts + outputs (git-ignored)
-├── paper/                      # LaTeX paper, reviewer notes, tracking
-├── documentacao/               # Internal documentation (Portuguese)
 ├── Makefile                    # Orchestration targets
 ├── requirements.txt            # Python dependencies
 └── README.md                   # This file
