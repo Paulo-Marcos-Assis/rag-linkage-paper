@@ -67,14 +67,17 @@ Generated in `noticias_simuladas/` and `data/`:
 ### Determinism guarantee
 With `seed=42`, `temperature=0.3`, and fixed model `gpt-oss:20b`, regeneration produces **bitwise-identical** synthetic articles to those used in the paper.
 
-## Expected results (from paper)
+## Expected results
 
 | Metric | Dev (500) | Test (214) |
 |---|---|---|
 | TF-IDF R@10 | 91.0% | 94.4% |
-| Single-call 20B Accuracy | 76.8% | 71.5% |
-| Tournament 7B Accuracy | 70.2% | — |
-| Latency (single-call 20B) | 20.8 s/item | — |
+| Single-call 20B Accuracy | 76.8% | 76.2% (163/214) |
+| Tournament 7B Accuracy | 66.2% | — |
+
+Valores da avaliação canônica (`results/avaliacao_canonica.*`). No teste, o melhor
+single-call foi `gemma4:31b` (78.5%); o tournament 20B com n=50 colapsou (falha 41,4%)
+— ver `results/README.md`.
 
 ## Citation
 

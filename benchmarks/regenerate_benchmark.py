@@ -11,9 +11,9 @@ This script orchestrates the generation of 714 synthetic news-process pairs:
 - 214 for held-out test set (30%)
 
 Usage:
-    python scripts/regenerate_benchmark.py --split dev
-    python scripts/regenerate_benchmark.py --split test
-    python scripts/regenerate_benchmark.py --split both
+    python benchmarks/regenerate_benchmark.py --split dev
+    python benchmarks/regenerate_benchmark.py --split test
+    python benchmarks/regenerate_benchmark.py --split both
 
 Requirements:
 - Ollama running with gpt-oss:20b model

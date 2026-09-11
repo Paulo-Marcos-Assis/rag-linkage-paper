@@ -17,7 +17,7 @@ help:
 	@echo "=================================="
 	@echo "  make dev            - Run full development pipeline (500 pairs)"
 	@echo "  make test           - Run full test pipeline (214 pairs)"
-	@echo "  make eval-retrieval - Run 13-method retrieval evaluation"
+	@echo "  make eval-retrieval - Canonical evaluation of generated results (99_avaliacao_canonica.py)"
 	@echo "  make rerank         - Run reranking experiments (tournament + single-call)"
 	@echo "  make indexes        - Build TF-IDF model and FAISS vector stores"
 	@echo "  make extract        - Run attribute extraction on generated news"
@@ -80,13 +80,11 @@ extract:
 # ============================================================
 
 eval-retrieval:
-	python scripts/run_retrieval_eval.py
-	# TODO: Create run_retrieval_eval.py that consolidates:
-	# - TF-IDF cosine
-	# - N-grams (n=2,3,4,5)
-	# - Jaccard, Dice, Overlap
-	# - Levenshtein, Jaro-Winkler
-	# - BERT base, BERTimbau Large, HeIBERT (zero-shot)
+	python scripts/99_avaliacao_canonica.py
+	# Nota: avalia os artefatos já gerados (caches TF-IDF, mapas de equivalência e
+	# JSONs de resultado). A comparação de 13 métodos de recuperação roda pelos
+	# scripts 01-04 + utils a partir dos artefatos gerados por `make indexes`;
+	# ver results/README.md para as tabelas finais.
 
 # ============================================================
 # RERANKING EXPERIMENTS
@@ -110,34 +108,24 @@ rerank-tournament-20b:
 # FULL PIPELINES
 # ============================================================
 
-dev: bench-dev indexes extract eval-retrieval rerank
-	@echo "Development pipeline complete. Results in results/"
+dev: bench-dev indexes extract rerank
+	@echo "Development pipeline complete. Results in results/ (avaliacao canônica: python scripts/99_avaliacao_canonica.py)"
 
-test: bench-test indexes extract eval-retrieval rerank
-	@echo "Test pipeline complete. Results in results/"
+test: bench-test indexes extract rerank
+	@echo "Test pipeline complete. Results in results/ (avaliacao canônica: python scripts/99_avaliacao_canonica.py)"
 
 # ============================================================
 # CLEANUP
 # ============================================================
 
 clean:
-	rm -rf results/ models/ benchmarks/*.json benchmarks/*.csv
+	rm -rf models/ benchmarks/*.json benchmarks/*.csv
+	find results -type f ! -name 'README.md' ! -name 'avaliacao_canonica.csv' ! -name 'avaliacao_canonica.json' -delete 2>/dev/null || true
 	find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 	find . -name "*.pyc" -delete 2>/dev/null || true
-	find . -name "*.pyo" -delete 2>/dev/null || true
 	@echo "Cleaned generated outputs."
 
 clean-all: clean
 	rm -rf data/*.csv data/*.json data/test/
 	rm -rf noticias_simuladas/*.csv noticias_simuladas/*.json noticias_simuladas/*.log
 	@echo "Cleaned ALL generated data (including benchmark inputs)."
-
-# ============================================================
-# PAPER COMPILATION
-# ============================================================
-
-paper:
-	cd paper/reviewers/sbc_template && latexmk -pdf sbc.tex
-
-paper-clean:
-	cd paper/reviewers/sbc_template && latexmk -C

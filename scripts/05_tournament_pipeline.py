@@ -12,10 +12,10 @@ OBJETIVO:
 - Avaliar Recall@1 final
 - Detectar explicitamente falhas do LLM
 
-CONFIGURAÇÃO VENCEDORA:
+CONFIGURAÇÃO VENCEDORA (versão final da dissertação):
 - Tournament 10×5 (10 grupos de 5 candidatos)
-- LLM: qwen2.5:7b
-- Accuracy: 70.2% (vs 66.6% TF-IDF baseline)
+- Melhor resultado dev na avaliação canônica: tournament qwen2.5:7b = 66.2%
+  (tournament qwen3.8:27b = 75.8%; ver results/avaliacao_canonica.json)
 
 Uso:
     python scripts/05_tournament_pipeline.py --limit 10

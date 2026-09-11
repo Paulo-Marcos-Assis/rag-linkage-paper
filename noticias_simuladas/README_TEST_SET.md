@@ -10,7 +10,7 @@
 | Conjunto | Tamanho | Percentual | Status |
 |----------|---------|------------|--------|
 | **Training Set** | 500 notícias | 70% | ✅ Existente |
-| **Test Set** | 214 notícias | 30% | 🔄 Em geração |
+| **Test Set** | 214 notícias | 30% | ✅ Completo (214/214) |
 | **Total** | 714 notícias | 100% | - |
 
 **Proporção:** 500/214 = 2.33 (correto para split 70/30)
@@ -65,14 +65,14 @@
 - **Colunas:** `[id_processo_licitatorio, numero_edital, modalidade, unidade_gestora, ente, municipio, uf, descricao_objeto]`
 - **Verificação:** ✅ Nenhum overlap com training set (0 IDs em comum)
 
-### **Etapa 3: Geração de Notícias Sintéticas 🔄**
+### **Etapa 3: Geração de Notícias Sintéticas ✅**
 
 - **Script:** `gerar_noticias_sinteticas_test.py`
 - **LLM:** gpt-oss:20b via Ollama (configure OLLAMA_HOST env var, default: http://localhost:11434)
 - **Temperatura:** 0.3
 - **Processo:** Reescrever cada notícia injetando atributos do processo correspondente
 - **Pareamento:** 1:1 (noticia[i] + processo[i] → sintetica[i])
-- **Status:** Em execução (iniciado às 14:50, 28/05/2026)
+- **Status:** ✅ Completo — 214/214 gerados, 0 erros, ~51,9 min no total (`geracao_log_test.txt`)
 - **Teste:** ✅ 5 pares gerados com sucesso (6.1 min, 100% sucesso)
 
 ---
@@ -113,8 +113,9 @@
 - Taxa de sucesso: 100%
 
 ### **Estimativa para 214 pares:**
-- Tempo estimado: ~4.3 horas (214 × 73s ÷ 60)
-- Com overhead: ~5 horas
+- **Execução real:** 214/214 em ~51,9 min (média ~14,6 s/par no run principal)
+- Estimativa inicial (~4.3 h) era pessimista — o run completo ficou bem abaixo
+  (o teste de 5 pares incluía warm-up e overhead de modelo mais alto)
 
 ---
 
@@ -192,8 +193,8 @@ python3 gerar_noticias_sinteticas_test.py --limit 10
 - [x] Seed fixo para reprodutibilidade (seed=42)
 - [x] Estrutura de arquivos consistente com training set
 - [x] Script de geração adaptado e testado
-- [ ] Geração completa de 214 pares (em andamento)
-- [ ] Verificação final de qualidade
+- [x] Geração completa de 214 pares (214/214, 0 erros)
+- [x] Verificação final de qualidade
 - [ ] Documentação de resultados
 
 ---

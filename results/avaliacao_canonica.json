@@ -1,0 +1,263 @@
+{
+  "metodologia": "identical-aware; denominador = total de notícias",
+  "recuperacao": {
+    "dev_500": {
+      "strict": {
+        "n_presentes": 480,
+        "perdidos_frac": 0.04,
+        "recall_at_1": 0.602,
+        "recall_at_5": 0.874,
+        "recall_at_10": 0.91,
+        "recall_at_20": 0.93,
+        "recall_at_50": 0.96,
+        "p_at_1": 0.602,
+        "mrr": 0.718237074808723,
+        "rank_medio": 2.9291666666666667
+      },
+      "equiv": {
+        "n_presentes": 480,
+        "perdidos_frac": 0.04,
+        "recall_at_1": 0.694,
+        "recall_at_5": 0.884,
+        "recall_at_10": 0.914,
+        "recall_at_20": 0.932,
+        "recall_at_50": 0.96,
+        "p_at_1": 0.694,
+        "mrr": 0.7762723599913767,
+        "rank_medio": 2.65
+      },
+      "slice_top10": {
+        "p_at_1_top10_equiv": 0.694,
+        "match_at_10_top10_equiv": 0.914
+      }
+    },
+    "test_214": {
+      "strict": {
+        "n_presentes": 208,
+        "perdidos_frac": 0.028037383177570093,
+        "recall_at_1": 0.6495327102803738,
+        "recall_at_5": 0.897196261682243,
+        "recall_at_10": 0.9439252336448598,
+        "recall_at_20": 0.9672897196261683,
+        "recall_at_50": 0.9719626168224299,
+        "p_at_1": 0.6495327102803738,
+        "mrr": 0.7598799567012561,
+        "rank_medio": 2.1538461538461537
+      },
+      "equiv": {
+        "n_presentes": 208,
+        "perdidos_frac": 0.028037383177570093,
+        "recall_at_1": 0.705607476635514,
+        "recall_at_5": 0.9018691588785047,
+        "recall_at_10": 0.9485981308411215,
+        "recall_at_20": 0.9672897196261683,
+        "recall_at_50": 0.9719626168224299,
+        "p_at_1": 0.705607476635514,
+        "mrr": 0.7922397697853683,
+        "rank_medio": 2.0336538461538463
+      },
+      "slice_top10": {
+        "p_at_1_top10_equiv": 0.705607476635514,
+        "match_at_10_top10_equiv": 0.9485981308411215
+      }
+    }
+  },
+  "llm": {
+    "results/single_call_top10_n500_gpt-oss_20b.json": {
+      "arquivo": "results/single_call_top10_n500_gpt-oss_20b.json",
+      "n_itens": 500,
+      "zerados": 17,
+      "falhas": 1,
+      "escolheu": 482,
+      "accuracy_sobre_total": 0.768,
+      "accuracy_detalhe_candidatos": 0.768,
+      "abstencao_rate": 0.034,
+      "falha_rate": 0.002,
+      "chamadas_llm_total": 500,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.07400000000000007,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n500_qwen2.5_7b.json": {
+      "arquivo": "results/single_call_top10_n500_qwen2.5_7b.json",
+      "n_itens": 500,
+      "zerados": 69,
+      "falhas": 0,
+      "escolheu": 431,
+      "accuracy_sobre_total": 0.652,
+      "accuracy_detalhe_candidatos": 0.652,
+      "abstencao_rate": 0.138,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 500,
+      "ganho_vs_tfidf_p1_top10_equiv": -0.041999999999999926,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n500_qwen3.5_9b.json": {
+      "arquivo": "results/single_call_top10_n500_qwen3.5_9b.json",
+      "n_itens": 500,
+      "zerados": 10,
+      "falhas": 9,
+      "escolheu": 481,
+      "accuracy_sobre_total": 0.766,
+      "accuracy_detalhe_candidatos": 0.766,
+      "abstencao_rate": 0.02,
+      "falha_rate": 0.018,
+      "chamadas_llm_total": 500,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.07200000000000006,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n500_qwen3.8_27b.json": {
+      "arquivo": "results/single_call_top10_n500_qwen3.8_27b.json",
+      "n_itens": 500,
+      "zerados": 17,
+      "falhas": 0,
+      "escolheu": 483,
+      "accuracy_sobre_total": 0.772,
+      "accuracy_detalhe_candidatos": 0.772,
+      "abstencao_rate": 0.034,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 500,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.07800000000000007,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n500_gemma4_31b.json": {
+      "arquivo": "results/single_call_top10_n500_gemma4_31b.json",
+      "n_itens": 500,
+      "zerados": 23,
+      "falhas": 2,
+      "escolheu": 475,
+      "accuracy_sobre_total": 0.76,
+      "accuracy_detalhe_candidatos": 0.76,
+      "abstencao_rate": 0.046,
+      "falha_rate": 0.004,
+      "chamadas_llm_total": 500,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.06600000000000006,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n214_test_gpt-oss_20b.json": {
+      "arquivo": "results/single_call_top10_n214_test_gpt-oss_20b.json",
+      "n_itens": 214,
+      "zerados": 5,
+      "falhas": 1,
+      "escolheu": 208,
+      "accuracy_sobre_total": 0.7616822429906542,
+      "accuracy_detalhe_candidatos": 0.7616822429906542,
+      "abstencao_rate": 0.02336448598130841,
+      "falha_rate": 0.004672897196261682,
+      "chamadas_llm_total": 214,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.05607476635514019,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n214_test_qwen3.5_9b.json": {
+      "arquivo": "results/single_call_top10_n214_test_qwen3.5_9b.json",
+      "n_itens": 214,
+      "zerados": 4,
+      "falhas": 0,
+      "escolheu": 210,
+      "accuracy_sobre_total": 0.7570093457943925,
+      "accuracy_detalhe_candidatos": 0.7570093457943925,
+      "abstencao_rate": 0.018691588785046728,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 214,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.051401869158878455,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n214_test_qwen3.8_27b.json": {
+      "arquivo": "results/single_call_top10_n214_test_qwen3.8_27b.json",
+      "n_itens": 214,
+      "zerados": 6,
+      "falhas": 0,
+      "escolheu": 208,
+      "accuracy_sobre_total": 0.780373831775701,
+      "accuracy_detalhe_candidatos": 0.780373831775701,
+      "abstencao_rate": 0.028037383177570093,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 214,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.07476635514018692,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/single_call_top10_n214_test_gemma4_31b.json": {
+      "arquivo": "results/single_call_top10_n214_test_gemma4_31b.json",
+      "n_itens": 214,
+      "zerados": 8,
+      "falhas": 0,
+      "escolheu": 206,
+      "accuracy_sobre_total": 0.7850467289719626,
+      "accuracy_detalhe_candidatos": 0.7850467289719626,
+      "abstencao_rate": 0.037383177570093455,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 214,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.07943925233644855,
+      "mrr_armazenado_artefato": 1.0
+    },
+    "results/tournament_top10_n500_gpt-oss_20b.json": {
+      "arquivo": "results/tournament_top10_n500_gpt-oss_20b.json",
+      "n_itens": 500,
+      "zerados": 103,
+      "falhas": 4,
+      "escolheu": 393,
+      "accuracy_sobre_total": 0.65,
+      "accuracy_detalhe_candidatos": 0.6813417190775681,
+      "abstencao_rate": 0.206,
+      "falha_rate": 0.008,
+      "chamadas_llm_total": 1129,
+      "ganho_vs_tfidf_p1_top10_equiv": -0.04399999999999993,
+      "mrr_armazenado_artefato": 0.6813
+    },
+    "results/tournament_n500_gpt-oss_20b.json": {
+      "arquivo": "results/tournament_n500_gpt-oss_20b.json",
+      "n_itens": 500,
+      "zerados": 0,
+      "falhas": 207,
+      "escolheu": 0,
+      "accuracy_sobre_total": 0.0,
+      "accuracy_detalhe_candidatos": 0.0,
+      "abstencao_rate": 0.0,
+      "falha_rate": 0.414,
+      "chamadas_llm_total": 5280,
+      "ganho_vs_tfidf_p1_top10_equiv": -0.694,
+      "mrr_armazenado_artefato": null
+    },
+    "results/tournament_top10_n500_qwen2.5_7b.json": {
+      "arquivo": "results/tournament_top10_n500_qwen2.5_7b.json",
+      "n_itens": 500,
+      "zerados": 33,
+      "falhas": 0,
+      "escolheu": 467,
+      "accuracy_sobre_total": 0.662,
+      "accuracy_detalhe_candidatos": 0.6853002070393375,
+      "abstencao_rate": 0.066,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 1300,
+      "ganho_vs_tfidf_p1_top10_equiv": -0.03199999999999992,
+      "mrr_armazenado_artefato": 0.6853
+    },
+    "results/tournament_top10_n500_qwen3.8_27b.json": {
+      "arquivo": "results/tournament_top10_n500_qwen3.8_27b.json",
+      "n_itens": 500,
+      "zerados": 39,
+      "falhas": 0,
+      "escolheu": 461,
+      "accuracy_sobre_total": 0.758,
+      "accuracy_detalhe_candidatos": 0.7928870292887029,
+      "abstencao_rate": 0.078,
+      "falha_rate": 0.0,
+      "chamadas_llm_total": 1199,
+      "ganho_vs_tfidf_p1_top10_equiv": 0.06400000000000006,
+      "mrr_armazenado_artefato": 0.7929
+    },
+    "results/tournament_top10_n500_gemma4_31b.json": {
+      "arquivo": "results/tournament_top10_n500_gemma4_31b.json",
+      "n_itens": 500,
+      "zerados": 131,
+      "falhas": 15,
+      "escolheu": 354,
+      "accuracy_sobre_total": 0.604,
+      "accuracy_detalhe_candidatos": 0.6425531914893617,
+      "abstencao_rate": 0.262,
+      "falha_rate": 0.03,
+      "chamadas_llm_total": 1090,
+      "ganho_vs_tfidf_p1_top10_equiv": -0.08999999999999997,
+      "mrr_armazenado_artefato": 0.6426
+    }
+  }
+}

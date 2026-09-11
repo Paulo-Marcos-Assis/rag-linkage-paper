@@ -41,8 +41,8 @@ neural:
     - name: "bertimbau_large"
       model_id: "neuralmind/bert-large-portuguese-cased"
       pooling: "cls"
-    - name: "heibert"
-      model_id: "pucpr/heibert"  # or local path
+    - name: "helbert"
+      model_id: "tcepi/helbert-base"  # or local path
       pooling: "cls"
   index_type: "faiss_flat_ip"  # inner product on normalized vectors
   batch_size: 32

@@ -18,9 +18,14 @@ This repository contains the complete code, prompts, and configurations to repro
 | Component | Dev (500) | Test (214) |
 |---|---|---|
 | TF-IDF R@10 | 91.0% | 94.4% |
-| Single-call 20B Accuracy | **76.8%** | **71.5%** |
-| Tournament 7B Accuracy | 70.2% | — |
+| Single-call 20B Accuracy | **76.8%** | **76.2% (163/214)** |
+| Tournament 7B Accuracy | 66.2% | — |
 | TF-IDF vs Neural (R@50) | +57.3 pp | — |
+
+> A versão final do paper (ENIAC) reporta 76.8% dev / 76.2% test (163/214) para o
+> single-call 20B. A dissertação avaliou adicionalmente os modelos `qwen3.5:9b`,
+> `qwen3.8:27b` e `gemma4:31b`; no teste, o melhor foi `gemma4:31b` (78.5%) seguido
+> de `qwen3.8:27b` (78.0%). Resultados completos em `results/README.md`.
 
 ## Repository Structure
 

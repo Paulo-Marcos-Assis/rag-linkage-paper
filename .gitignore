@@ -29,6 +29,10 @@ results/checkpoint_*.json
 results/*_metrics_summary.md
 results/errors_analysis.json
 
+# Exceções versionadas: avaliação canônica (dissertação) gerada por scripts/99_avaliacao_canonica.py
+!results/avaliacao_canonica.csv
+!results/avaliacao_canonica.json
+
 # ==========================================
 # Python
 # ==========================================
